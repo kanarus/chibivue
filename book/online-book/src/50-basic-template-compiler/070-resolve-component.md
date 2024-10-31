@@ -319,7 +319,7 @@ export function compile(template: string, option?: CompilerOptions) {
 
 少し話が飛びましたが，パーサの実装に必要なものは揃ったので，残りの部分を実装していきます．
 
-残りはとっても簡単です．コンポーネント化どうかを判断して tagType を生やしてあげるだけです．
+残りはとっても簡単です．コンポーネントかどうかを判断して tagType を生やしてあげるだけです．
 
 ```ts
 function parseElement(

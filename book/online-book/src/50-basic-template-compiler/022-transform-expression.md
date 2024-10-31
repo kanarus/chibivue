@@ -323,7 +323,7 @@ export function makeMap(
 }
 ```
 
-問題はこの次で，SimpleExpressionNode (単純な Identifier ではない) をどのようにして node を transform していくかです．  
+問題はこの次で，SimpleExpressionNode (単純な Identifier ではない) をどのようにして transform していくかです．  
 これからの話で少し注意して欲しい点が，Babel のパーサによって生成された JavaScript の AST と，我々が定義した chibivue の AST の２つを扱うことになるので，  
 混乱を避けるために前者のことを estree，後者のことを AST とこのチャプターでは呼ぶことにします．
 
@@ -364,7 +364,7 @@ export function processExpression(node: SimpleExpressionNode): ExpressionNode {
 }
 ```
 
-注意するべき点としては，ここまでではまだ estree を操作しただけで，ast の node は何も操作されていないという点です．
+注意するべき点としては，ここまでではまだ estree を操作しただけで，AST の node は何も操作されていないという点です．
 
 ### CompoundExpression
 

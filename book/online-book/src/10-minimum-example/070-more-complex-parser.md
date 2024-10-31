@@ -82,10 +82,10 @@ export interface Node {
 // Element の Node です。
 export interface ElementNode extends Node {
   type: NodeTypes.ELEMENT
-  tag: string // eg. "div"
-  props: Array<AttributeNode> // eg. { name: "class", value: { content: "container" } }
+  tag: string // e.g. "div"
+  props: Array<AttributeNode> // e.g. { name: "class", value: { content: "container" } }
   children: TemplateChildNode[]
-  isSelfClosing: boolean // eg. <img /> -> true
+  isSelfClosing: boolean // e.g. <img /> -> true
 }
 
 // ElementNode が持つ属性です。
@@ -205,7 +205,7 @@ export const baseParse = (
 function parseChildren(
   context: ParserContext,
 
-  // HTMLは再起的な構造を持っているので、祖先要素をスタックとして持っておいて、子にネストして行くたびにpushしていきます。
+  // HTMLは再帰的な構造を持っているので、祖先要素をスタックとして持っておいて、子にネストして行くたびにpushしていきます。
   // endタグを見つけるとparseChildrenが終了してancestorsをpopする感じです。
   ancestors: ElementNode[],
 ): TemplateChildNode[] {
@@ -337,7 +337,7 @@ function parseTextData(context: ParserContext, length: number): string {
   return rawText
 }
 
-// -------------------- 以下からはユーティリティです。(parseElementなどでも使う) --------------------
+// -------------------- 以下はユーティリティです。(parseElementなどでも使う) --------------------
 
 function advanceBy(context: ParserContext, numberOfCharacters: number): void {
   const { source } = context
@@ -473,7 +473,7 @@ function parseTag(context: ParserContext, type: TagType): ElementNode {
 }
 
 // 属性全体(複数属性)のパース
-// eg. `id="app" class="container" style="color: red"`
+// e.g. `id="app" class="container" style="color: red"`
 function parseAttributes(
   context: ParserContext,
   type: TagType,
@@ -507,7 +507,7 @@ type AttributeValue =
   | undefined
 
 // 属性一つのパース
-// eg. `id="app"`
+// e.g. `id="app"`
 function parseAttribute(
   context: ParserContext,
   nameSet: Set<string>,
@@ -680,7 +680,7 @@ const genText = (text: TextNode): string => {
 }
 ```
 
-以上で動くようなものは作れます．
+以上で動くものは作れます．
 パーサの章でコメントアウトした部分を戻して，実際に動作を見てみましょう．
 `~/packages/compiler-core/compile.ts`
 

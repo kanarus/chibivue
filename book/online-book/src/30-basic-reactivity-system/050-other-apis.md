@@ -1,4 +1,4 @@
-# その他の reactivity api
+# その他の Reactivity API
 
 ::: warning
 2023 年 の 12 月末に [Vue 3.4](https://blog.vuejs.org/posts/vue-3-4) がリリースされましたが，これには [reactivity のパフォーマンス改善](https://github.com/vuejs/core/pull/5912) が含まれています．  
@@ -6,7 +6,7 @@
 然るべきタイミングでこのオンラインブックも追従する予定です．  
 :::
 
-## その他の reactivity api を実装してみましょう !
+## その他の Reactivity API を実装してみましょう !
 
 - customRef
 - readonly

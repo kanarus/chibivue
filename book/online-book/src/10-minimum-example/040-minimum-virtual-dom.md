@@ -125,7 +125,7 @@ export function h(
 
 ここからが本筋なのですが，これまで VNode が持つ子要素の型は`(Vnode | string)[]`としてきたのですが，Text を文字列として扱い続けるのもなんなので，VNode に統一してみようと思います．
 Text も実際にはただの文字列ではなく，HTML の TextElement として存在するので，文字列以上の情報を含みます．それらの周辺情報を扱うためにも VNode として扱いたいわけです．
-具体的には，Text と言う Symbol を用いて，VNode の type として持たせましょう．
+具体的には，Text という Symbol を用いて，VNode の type として持たせましょう．
 例えば，`"hello"`のようなテキストがあった時，
 
 ```ts
@@ -324,7 +324,7 @@ const processText = (
 
 一旦ここまでで，初回のマウントはできるようになったはずなので，render 関数で patch 関数を使用して playground で試してみましょう!  
 今まで，createAppAPI の mount に書いていた処理を一部 render 関数に移植して，２つの vnode を保持できるようにします．  
-具体的には．render 関数に rootComponent を渡して，その中で ReactiveEffect の登録等を行うように変更します．
+具体的には，render 関数に rootComponent を渡して，その中で ReactiveEffect の登録等を行うように変更します．
 
 ```ts
 return function createApp(rootComponent) {
@@ -358,7 +358,7 @@ const render: RootRenderFunction = (rootComponent, container) => {
 
 まだ，patch の処理は行なっていないので画面の更新は行われません．
 
-と，言うことで引き続き patch の処理を書いていきましょう．
+と，いうことで引き続き patch の処理を書いていきましょう．
 
 ```ts
 const patchElement = (n1: VNode, n2: VNode) => {

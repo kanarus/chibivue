@@ -92,7 +92,7 @@ app.mount('#app')
 
 さまざまなビルドツールがありますが，今回は vite のプラグインを書いてみます．
 
-vite のプラグインを書いたことのない方も少ないと思うので，まずは簡単なサンプルコードでプラグインの実装に慣れてみましょう．
+vite のプラグインを書いたことのない方も少なくないと思うので，まずは簡単なサンプルコードでプラグインの実装に慣れてみましょう．
 とりあえず簡単な vue のプロジェクトを作ってみます．
 
 ```sh
@@ -257,7 +257,7 @@ export default function vitePluginChibivue(): Plugin {
 }
 ```
 
-ここから SFC のコンパイラを実装していくのですが，実態がないとイメージが湧きづらいかと思うので playground を実装してみて，動かしながらやっていこうかと思います．  
+ここから SFC のコンパイラを実装していくのですが，実体がないとイメージが湧きづらいかと思うので playground を実装してみて，動かしながらやっていこうかと思います．  
 簡単な SFC とその読み込みを行います．
 
 ```sh
@@ -1005,7 +1005,7 @@ s.overwrite(9, 13, 'こんにちは') // 範囲を指定して上書き
 
 特に無理して使う必要はないのですが，本家の Vue に合わせて使うことにします．
 
-Babel にしろ magic-string にしろ，実際の使い方等は実装の段階で合わせて説明するのでなんとなくの理解で問題ないです．
+Babel にしろ magic-string にしろ，実際の使い方等は実装の段階で併せて説明するのでなんとなくの理解で問題ないです．
 
 ## script の default export を書き換える
 
@@ -1343,9 +1343,9 @@ export default function vitePluginChibivue(): Plugin {
       if (id.match(/\.vue\.css$/)) {
         const filename = id.replace(/\.css$/, '')
         const content = fs.readFileSync(filename, 'utf-8') // 普通にSFCファイルを取得
-        const { descriptor } = parse(content, { filename }) //  SFCをパース
+        const { descriptor } = parse(content, { filename }) // SFCをパース
 
-        // contentをjoinsして結果とする。
+        // contentをjoinして結果とする。
         const styles = descriptor.styles.map(it => it.content).join('\n')
         return { code: styles }
       }

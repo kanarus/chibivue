@@ -27,7 +27,7 @@ const render: RootRenderFunction = (rootComponent, container) => {
 
 render 関数内にルートコンポーネントに関する情報を直接定義してしまっています．  
 実際には，n1 や n2, updateComponent, effect は各コンポーネントごとに存在します．  
-実際，これからはユーザー側でコンポーネント(ある意味でコンストラクタ)を定義してそれをインスタンス化したいわけです．  
+これからはユーザー側でコンポーネント(ある意味でコンストラクタ)を定義してそれをインスタンス化したいわけです．  
 そして，そのインスタンスが n1 や n2, updateComponent などを持つような感じにしたいです．  
 そこで，コンポーネントのインスタンスとしてこれらを閉じ込めることについて考えてみます．
 
@@ -172,7 +172,7 @@ export function createComponentInstance(
 }
 ```
 
-各プロパティの型は non-null なのですが，インスタンスを生成した段階では null で入れてしまいます．(本家の Vue.js に合わせてこのような設計にしています．)
+各プロパティの型は non-null なのですが，インスタンスを生成した段階では null を入れてしまいます．(本家の Vue.js に合わせてこのような設計にしています．)
 
 ```ts
 const mountComponent = (initialVNode: VNode, container: RendererElement) => {
@@ -414,7 +414,7 @@ export function createComponentInstance(
 ```
 
 肝心の instance.props をどう形成するかというと，コンポーネントのマウント時に vnode が保持している props を propsOptions を元にフィルターします．
-フィルターしてできたオブジェクトを reactive 関数によってリアクティブなオブジェクトにし，instance.prop にセットします．
+フィルターしてできたオブジェクトを reactive 関数によってリアクティブなオブジェクトにし，instance.props にセットします．
 
 この一連の流れを実装する`initProps`という関数を componentProps.ts に実装します．
 
@@ -499,7 +499,7 @@ const app = createApp({
 })
 ```
 
-しかし，実はこれだけでは不十分で，props を変更した際に描画が更新されません．
+しかし，実はこれだけでは不十分で，props を変更した際に画面が更新されません．
 
 ```ts
 const MyComponent = {
@@ -526,7 +526,7 @@ const app = createApp({
 })
 ```
 
-このようなコンポーネントを動作させるために，componentProps.ts に `updateProps` を実装し，コンポーネントが update する際に実行してあげます．
+このようなコンポーネントを動作させるために，componentProps.ts に `updateProps` を実装し，コンポーネントを update する際に実行してあげます．
 
 `~/packages/runtime-core/componentProps.ts`
 
