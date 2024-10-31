@@ -1,4 +1,4 @@
-# ref api (Basic Reactivity System 部門スタート)
+# ref API (Basic Reactivity System 部門スタート)
 
 ::: warning
 2023 年 の 12 月末に [Vue 3.4](https://blog.vuejs.org/posts/vue-3-4) がリリースされましたが，これには [reactivity のパフォーマンス改善](https://github.com/vuejs/core/pull/5912) が含まれています．  
@@ -6,9 +6,9 @@
 然るべきタイミングでこのオンラインブックも追従する予定です．  
 :::
 
-## ref api のおさらい (と実装)
+## ref API のおさらい (と実装)
 
-Vue.js には Reactivity に関する様々な api がありますが，中でも ref はあまりに有名です．  
+Vue.js には Reactivity に関する様々な API がありますが，中でも ref はあまりに有名です．  
 公式ドキュメントの方でも Reactivity Core という名目で，しかも一番最初に紹介されています．  
 https://vuejs.org/api/reactivity-core.html#ref
 
@@ -94,7 +94,7 @@ app.mount('#app')
 
 ## shallowRef
 
-さて，続けてどんどん ref 周りの api を実装していきます．  
+さて，続けてどんどん ref 周りの API を実装していきます．  
 先ほど，ref の性質として「value プロパティにオブジェクトが割り当てられた際は value プロパティの値は reactive オブジェクトになる」というものを紹介しましたが，この性質を持たないのが shallowRef です．
 
 > Unlike ref(), the inner value of a shallow ref is stored and exposed as-is, and will not be made deeply reactive. Only the .value access is reactive.
@@ -147,7 +147,7 @@ app.mount('#app')
 
 前述の通り，shallow ref が持つ value は reactive オブジェクトではないので，変更を加えてもエフェクトがトリガーされることはありません．  
 しかし，value 自体はオブジェクトなので変更されています．  
-そこで，強制的にトリガーさせる api が存在します．それが triggerRef です．
+そこで，強制的にトリガーさせる API が存在します．それが triggerRef です．
 
 https://vuejs.org/api/reactivity-advanced.html#triggerref
 
@@ -202,7 +202,7 @@ app.mount('#app')
 
 ## toRef
 
-toRef は reactive オブジェクトのプロパティへの ref を生成する api です．
+toRef は reactive オブジェクトのプロパティへの ref を生成する API です．
 
 https://vuejs.org/api/reactivity-utilities.html#toref
 

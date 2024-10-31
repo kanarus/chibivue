@@ -137,7 +137,7 @@
   ref/watch/computed というベーシックな API をはじめ，effectScope や shallow 系などの応用的な API まで幅広く実装します．
 
 - **Basic Component System 部門**  
-  ここでは Component System 関する基本実装を行います．実は，Basic Virtual DOM 部門で Component System のベースは実装してしまうので，
+  ここでは Component System に関する基本実装を行います．実は，Basic Virtual DOM 部門で Component System のベースは実装してしまうので，
   それ以外の部分の Component System を実装します．例えば props/emit や provide/inject， Reactivity System の拡張，ライフサイクルフックなどです．
 
 - **Basic Template Compiler 部門**  

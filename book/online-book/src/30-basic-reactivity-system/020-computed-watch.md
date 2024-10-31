@@ -1,4 +1,4 @@
-# computed / watch api
+# computed / watch API
 
 ::: warning
 2023 年 の 12 月末に [Vue 3.4](https://blog.vuejs.org/posts/vue-3-4) がリリースされましたが，これには [reactivity のパフォーマンス改善](https://github.com/vuejs/core/pull/5912) が含まれています．  
@@ -8,7 +8,7 @@
 
 ## computed のおさらい (と実装)
 
-前のチャプターで ref 系の api を実装しました．続いては computed です．  
+前のチャプターで ref 系の API を実装しました．続いては computed です．  
 https://vuejs.org/api/reactivity-core.html#computed
 
 computed には読み取り専用と書き込み可能の 2 つのシグネチャがあります．
@@ -148,7 +148,7 @@ app.mount('#app')
 
 https://vuejs.org/api/reactivity-core.html#watch
 
-watch にもいろんな形式の api があります．まずは最も単純な，getter 関数によって監視するような api を実装してみましょう．
+watch にもいろんな形式の API があります．まずは最も単純な，getter 関数によって監視するような API を実装してみましょう．
 まずは，以下のようなコードが動くことを目指します．
 
 ```ts
@@ -175,8 +175,8 @@ app.mount('#app')
 
 watch の実装は reactivity ではなく，runtime-core の方に実装していきます (apiWatch.ts)．
 
-さまざまな api が混在しているので，少し複雑に見えますが，範囲を絞ればとても単純なことです．  
-目標とする api(watch 関数)のシグネチャを以下に実装しておくので，是非実装してみてください．  
+さまざまな API が混在しているので，少し複雑に見えますが，範囲を絞ればとても単純なことです．  
+目標とする API(watch 関数)のシグネチャを以下に実装しておくので，是非実装してみてください．  
 今までリアクティビティの知識を培ってきたみなさんなら実装できると思います！
 
 ```ts
@@ -197,7 +197,7 @@ export function watch<T>(
 ここまでのソースコード:  
 [chibivue (GitHub)](https://github.com/Ubugeeei/chibivue/tree/main/book/impls/30_basic_reactivity_system/070_watch)
 
-## watch の その他の api
+## watch の その他の API
 
 ベースができてしまえば，後は拡張するだけです．これも特に解説は必要ないでしょう．
 

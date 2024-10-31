@@ -112,7 +112,7 @@ for (i = s2; i <= e2; i++) {
 }
 ```
 
-本家の Vue ではこの patchKeyedChildren は５のパートに分かれます．
+本家の Vue ではこの patchKeyedChildren は５つのパートに分かれます．
 
 1. sync from start
 2. sync from end
@@ -151,7 +151,7 @@ for (i = toBePatched - 1; i >= 0; i--) {
   const nextIndex = i
   const nextChild = c2[nextIndex] as VNode
   if (newIndexToOldIndexMap[i] === 0) {
-    // マップが存在しない(初期値のまま)のであれば新しくマウントするということになる。　(真にはあって、旧にはないということなので)
+    // マップが存在しない(初期値のまま)であれば新しくマウントするということになる。　(新にはあって、旧にはないということなので)
     patch(null, nextChild, container, anchor)
   }
 }
@@ -163,7 +163,7 @@ for (i = toBePatched - 1; i >= 0; i--) {
 
 ### Node.insertBefore
 
-現時点では，key の一致のよってそれぞれの要素を更新しているだけなので，移動していた場合は所定の位置に移動させる処理を書かなくてはなりません．
+現時点では，key の一致によってそれぞれの要素を更新しているだけなので，移動していた場合は所定の位置に移動させる処理を書かなくてはなりません．
 
 まず，どうやって要素を移動するかについてですが，nodeOps の insert に anchor の指定をします．
 anchor というのは名前の通りアンカーで，runtime-dom に実装した nodeOps を見てもらえればわかるのですが，この insert メソッドは`insertBefore`というメソッドで実装されています．
@@ -354,7 +354,7 @@ for (i = toBePatched - 1; i >= 0; i--) {
 }
 ```
 
-## 実際に実装してみよう．
+## 実際に実装してみよう
 
 さて，方針についてはざっと説明したので実際に `patchKeyedChildren` を実装してみましょう．
 Todo だけまとめておきます．

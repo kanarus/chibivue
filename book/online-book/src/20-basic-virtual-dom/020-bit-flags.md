@@ -10,7 +10,7 @@ VNode にはいろんな種類のものがあります．例えば，今実装�
 - 子要素が text かどうか
 - 子要素が配列かどうか
 
-そして，これから先はさらにいろんな種類の Vnode が追加実装されることでしょう．  
+そして，これから先はさらにいろんな種類の VNode が追加実装されることでしょう．  
 例えば，slot, keep-alive, suspense, teleport などがそうです．
 
 今のところ，`type === Text` や `typeof type === "string"`, `typeof type === "object"` などで分岐をおこなっています．

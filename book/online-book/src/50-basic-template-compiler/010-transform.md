@@ -240,7 +240,7 @@ export interface TransformContext extends Required<TransformOptions> {
 
 ## Transformer の実装
 
-それでは，実際に transform 関数を見ていきます．まずはそれぞれの変換処理の内容に寄らない大枠の説明からです．
+それでは，実際に transform 関数を見ていきます．まずはそれぞれの変換処理の内容によらない大枠の説明からです．
 
 構成は非常にシンプルで，context を生成して traverseNode するだけです．
 この traverseNode が変換の実装本体です．

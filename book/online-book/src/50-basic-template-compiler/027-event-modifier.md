@@ -122,10 +122,10 @@ DOM に依存するような処理は行っていません．
 今回は実際に `e.preventDefault()` や `e.stopPropagation()` を実行するコードを生成したいです．  
 これらは大きく DOM に依存してしまいます．
 
-そこで，compiler-dom 側にも transformer を実装していきます． DOM に関連する transform はここに実装して行くことにしましょう．
+そこで，compiler-dom 側にも transformer を実装していきます． DOM に関連する transform はここに実装していくことにしましょう．
 
 compiler-dom の方に `transformOn` を実装していきたいのですが，runtime-core の `transformOn` との兼ね合いを考える必要があります．  
-兼ね合いというのは，「compiler-core の transform も実行しつつ，compiler-dom で実装した transform を実装するにはどうすればいいのか?」 ということです．
+兼ね合いというのは，「compiler-core の transform も実行しつつ，compiler-dom で実装した transform を実行するにはどうすればいいのか?」 ということです．
 
 そこでまず， compiler-core の方に実装してある `DirectiveTransform` という interface に手を加えていきます．
 
@@ -161,7 +161,7 @@ export const transformOn: DirectiveTransform = (dir, node, context) => {
 ```
 
 そして，この compiler-dom 側で実装した `transformOn` を compiler のオプションとして渡してあげれば OK です．  
-以下のような関係図です．  
+以下のような関係です．  
 全ての transformer を compiler-dom から渡すのではなく，デフォルトの実装は compiler-core に実装しておき，オプションとしてあと乗せ出来るような構成にするイメージです．
 
 ![50-027-new-compiler-architecture](https://raw.githubusercontent.com/Ubugeeei/chibivue/main/book/images/50-027-new-compiler-architecture.drawio.png)
